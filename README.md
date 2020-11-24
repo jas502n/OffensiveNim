@@ -1,3 +1,100 @@
+osproc
+==
+
+`./1.4.0/nim/lib/pure/osproc.nim`
+
+
+```
+proc execProcess*(command: string, workingDir: string = "",
+proc execCmd*(command: string): int {.rtl, extern: "nosp$1",
+proc startProcess*(command: string, workingDir: string = "",
+proc close*(p: Process) {.rtl, extern: "nosp$1", tags: [WriteIOEffect].}
+proc suspend*(p: Process) {.rtl, extern: "nosp$1", tags: [].}
+proc resume*(p: Process) {.rtl, extern: "nosp$1", tags: [].}
+proc terminate*(p: Process) {.rtl, extern: "nosp$1", tags: [].}
+proc kill*(p: Process) {.rtl, extern: "nosp$1", tags: [].}
+proc running*(p: Process): bool {.rtl, extern: "nosp$1", tags: [].}
+proc processID*(p: Process): int {.rtl, extern: "nosp$1".} =
+proc waitForExit*(p: Process, timeout: int = -1): int {.rtl,
+proc peekExitCode*(p: Process): int {.rtl, extern: "nosp$1", tags: [].}
+proc inputStream*(p: Process): Stream {.rtl, extern: "nosp$1", tags: [].}
+proc outputStream*(p: Process): Stream {.rtl, extern: "nosp$1", tags: [].}
+proc errorStream*(p: Process): Stream {.rtl, extern: "nosp$1", tags: [].}
+proc peekableOutputStream*(p: Process): Stream {.rtl, extern: "nosp$1", tags: [], since: (1, 3).}
+proc peekableErrorStream*(p: Process): Stream {.rtl, extern: "nosp$1", tags: [], since: (1, 3).}
+proc inputHandle*(p: Process): FileHandle {.rtl, extern: "nosp$1",
+proc outputHandle*(p: Process): FileHandle {.rtl, extern: "nosp$1",
+proc errorHandle*(p: Process): FileHandle {.rtl, extern: "nosp$1",
+proc countProcessors*(): int {.rtl, extern: "nosp$1".} =
+proc execProcesses*(cmds: openArray[string],
+proc readLines*(p: Process): (seq[string], int) {.since: (1, 3).} =
+proc execProcess(command: string, workingDir: string = "",
+proc hsClose(s: Stream) =
+proc hsAtEnd(s: Stream): bool = return FileHandleStream(s).atTheEnd
+proc hsReadData(s: Stream, buffer: pointer, bufLen: int): int =
+proc hsWriteData(s: Stream, buffer: pointer, bufLen: int) =
+proc newFileHandleStream(handle: Handle): owned FileHandleStream =
+proc buildCommandLine(a: string, args: openArray[string]): string =
+proc buildEnv(env: StringTableRef): tuple[str: cstring, len: int] =
+proc open_osfhandle(osh: Handle, mode: int): int {.
+proc myDup(h: Handle; inherit: WINBOOL = 1): Handle =
+proc createAllPipeHandles(si: var STARTUPINFO;
+proc createPipeHandles(rdHandle, wrHandle: var Handle) =
+proc fileClose(h: Handle) {.inline.} =
+proc startProcess(command: string, workingDir: string = "",
+proc close(p: Process) =
+proc suspend(p: Process) =
+proc resume(p: Process) =
+proc running(p: Process): bool =
+proc terminate(p: Process) =
+proc kill(p: Process) =
+proc waitForExit(p: Process, timeout: int = -1): int =
+proc peekExitCode(p: Process): int =
+proc inputStream(p: Process): Stream =
+proc outputStream(p: Process): Stream =
+proc errorStream(p: Process): Stream =
+proc peekableOutputStream(p: Process): Stream =
+proc peekableErrorStream(p: Process): Stream =
+proc execCmd(command: string): int =
+proc select(readfds: var seq[Process], timeout = 500): int =
+proc hasData*(p: Process): bool =
+proc isExitStatus(status: cint): bool =
+proc envToCStringArray(t: StringTableRef): cstringArray =
+proc envToCStringArray(): cstringArray =
+proc startProcessAuxSpawn(data: StartProcessData): Pid {.
+proc startProcessAuxFork(data: StartProcessData): Pid {.
+proc startProcessAfterFork(data: ptr StartProcessData) {.
+proc startProcess(command: string, workingDir: string = "",
+proc startProcessAuxSpawn(data: StartProcessData): Pid =
+proc startProcessAuxFork(data: StartProcessData): Pid =
+proc startProcessFail(data: ptr StartProcessData) =
+proc startProcessAfterFork(data: ptr StartProcessData) =
+proc close(p: Process) =
+proc suspend(p: Process) =
+proc resume(p: Process) =
+proc running(p: Process): bool =
+proc terminate(p: Process) =
+proc kill(p: Process) =
+proc waitForExit(p: Process, timeout: int = -1): int =
+proc waitForObjects(infos: ptr ObjectWaitInfo, numInfos: cint, flags: uint32,
+proc waitForExit(p: Process, timeout: int = -1): int =
+proc waitForExit(p: Process, timeout: int = -1): int =
+proc peekExitCode(p: Process): int =
+proc createStream(handle: var FileHandle,
+proc inputStream(p: Process): Stream =
+proc outputStream(p: Process): Stream =
+proc errorStream(p: Process): Stream =
+proc peekableOutputStream(p: Process): Stream =
+proc peekableErrorStream(p: Process): Stream =
+proc csystem(cmd: cstring): cint {.nodecl, importc: "system",
+proc execCmd(command: string): int =
+proc createFdSet(fd: var TFdSet, s: seq[Process], m: var int) =
+proc pruneProcessSet(s: var seq[Process], fd: var TFdSet) =
+proc select(readfds: var seq[Process], timeout = 500): int =
+proc hasData*(p: Process): bool =
+proc execCmdEx*(command: string, options: set[ProcessOption] = {
+```
+
 <p align="center">
     <img height="300" alt="OffensiveNim" src="https://user-images.githubusercontent.com/5151193/98487722-ed729600-21e1-11eb-9d77-a79b0f3634de.png">
 </p>
@@ -201,62 +298,4 @@ Used it to translate a bunch of small C snippets, haven't tried anything major.
 ## Language Bridges
 
   - Python integration https://github.com/yglukhov/nimpy
-    * This is actually super interesting, [especially this part](https://github.com/yglukhov/nimpy/blob/master/nimpy/py_lib.nim#L330). With some modification could this load the PythonxXX.dll from memory?
-
-  - Jave VM integration: https://github.com/yglukhov/jnim
-
-## Debugging
-
-Use the `repr()` function in combination with `echo`, supports almost all (??) data types, even structs!
-
-See [this blog post for more](https://nim-lang.org/blog/2017/10/02/documenting-profiling-and-debugging-nim-code.html)
-
-## Setting up a dev environment
-
-VSCode has a Nim extension which works pretty well. This also seems to be the only option at this point.
-
-## Pitfalls I found myself falling into
-
-- When calling winapi's with Winim and trying to pass a null value, make sure you pass the `NULL` value (defined within the Winim library) as supposed Nim's builtin `nil` value. (Ugh)
-
-- To get the OS handle to the created file after calling `open()` on Windows, you need to call `f.getOsFileHandle()` **not** `f.getFileHandle()` cause reasons.
-
-- The Nim compiler does accept arguments in the form `-a=value` or `--arg=value` even tho if you look at the usage it only has arguments passed as `-a:value` or `--arg:value`. (Important for Makefiles)
-
-- When defining a byte array, you also need to indicate at least in the first value that it's a byte array, bit weird but ok (https://forum.nim-lang.org/t/4322)
-
-Byte array in C#:
-```csharp
-byte[] buf = new byte[5] {0xfc,0x48,0x81,0xe4,0xf0,0xff}
-```
-
-Byte array in Nim:
-```nim
-var buf: array[5, byte] = [byte 0xfc,0x48,0x81,0xe4,0xf0,0xff]
-```
-
-## Interesting Nim libraries
-
-- https://github.com/dom96/jester
-- https://github.com/pragmagic/karax
-- https://github.com/Niminem/Neel
-- https://github.com/status-im/nim-libp2p
-- https://github.com/PMunch/libkeepass
-- https://github.com/def-/nim-syscall
-- https://github.com/tulayang/asyncdocker
-- https://github.com/treeform/ws
-- https://github.com/guzba/zippy
-- https://github.com/rockcavera/nim-iputils
-- https://github.com/FedericoCeratto/nim-socks5
-- https://github.com/CORDEA/backoff
-- https://github.com/treeform/steganography
-- https://github.com/miere43/nim-registry
-- https://github.com/status-im/nim-daemon
-
-## Nim for implant dev links
-
-- https://secbytes.net/Implant-Roulette-Part-1:-Nimplant
-- https://securelist.com/zebrocys-multilanguage-malware-salad/90680/
-- https://github.com/MythicAgents/Nimplant
-- https://github.com/elddy/Nim-SMBExec
-- https://github.com/elddy/NimScan
+    * This is 
