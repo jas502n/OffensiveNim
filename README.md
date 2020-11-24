@@ -73,7 +73,7 @@ You should now have the `nim` & `nimble` commands available, the former is the N
 
 Install the `Mingw` toolchain needed for cross-compilation to Windows (Not needed if you're compiling on Windows):
 - Nix: `apt-get insatall mingw`
-- MacOS: `brew install mingw`
+- MacOS: `brew install mingw-w64`
 
 Finally, install the magnificent [Winim](https://github.com/khchen/winim) library:
 
