@@ -95,6 +95,14 @@ proc hasData*(p: Process): bool =
 proc execCmdEx*(command: string, options: set[ProcessOption] = {
 ```
 
+## shellcode xor
+
+```
+var scode: array[926, byte] = [byte 0x20,0x94,0x5f,0x38,0x2c,0x34]
+        for i in 0..925:
+            scode[i] =  scode[i] xor 220
+```
+
 <p align="center">
     <img height="300" alt="OffensiveNim" src="https://user-images.githubusercontent.com/5151193/98487722-ed729600-21e1-11eb-9d77-a79b0f3634de.png">
 </p>
