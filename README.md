@@ -1,7 +1,15 @@
 osproc
 ==
 
-fix path
+## comiple
+
+```
+nim c -d=debug -d=mingw --embedsrc=on --hints=on --app=console --cpu=amd64 --out=bin/shellcode_bin_64.exe src/shellcode_bin.nim
+nim c -d=debug -d=mingw --embedsrc=on --hints=on --app=console --cpu=i386 --out=bin/shellcode_bin_32.exe src/shellcode_bin.nim
+
+```
+
+## fix path
 
 ```
 sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-addr2line  i686-w64-mingw32-addr2line  
