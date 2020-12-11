@@ -1,6 +1,75 @@
 osproc
 ==
 
+fix path
+
+```
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-addr2line  i686-w64-mingw32-addr2line  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-ar  /usr/bin/i686-w64-mingw32-ar  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-as  /usr/bin/i686-w64-mingw32-as  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-c++  /usr/bin/i686-w64-mingw32-c++  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-c++filt  /usr/bin/i686-w64-mingw32-c++filt  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-cpp  /usr/bin/i686-w64-mingw32-cpp  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-dlltool  /usr/bin/i686-w64-mingw32-dlltool  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-dllwrap  /usr/bin/i686-w64-mingw32-dllwrap  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-elfedit  /usr/bin/i686-w64-mingw32-elfedit  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-g++  /usr/bin/i686-w64-mingw32-g++  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcc  /usr/bin/i686-w64-mingw32-gcc  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcc-9.2.0  /usr/bin/i686-w64-mingw32-gcc-9.2.0  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcc-ar  /usr/bin/i686-w64-mingw32-gcc-ar  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcc-nm  /usr/bin/i686-w64-mingw32-gcc-nm  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcc-ranlib  /usr/bin/i686-w64-mingw32-gcc-ranlib  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcov  /usr/bin/i686-w64-mingw32-gcov  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcov-dump  /usr/bin/i686-w64-mingw32-gcov-dump  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gcov-tool  /usr/bin/i686-w64-mingw32-gcov-tool  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gfortran  /usr/bin/i686-w64-mingw32-gfortran  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-gprof  /usr/bin/i686-w64-mingw32-gprof  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-ld  /usr/bin/i686-w64-mingw32-ld  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-ld.bfd  /usr/bin/i686-w64-mingw32-ld.bfd  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-nm  /usr/bin/i686-w64-mingw32-nm  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-objcopy  /usr/bin/i686-w64-mingw32-objcopy  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-objdump  /usr/bin/i686-w64-mingw32-objdump  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-ranlib  /usr/bin/i686-w64-mingw32-ranlib  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-readelf  /usr/bin/i686-w64-mingw32-readelf  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32ize  /usr/bin/i686-w64-mingw32ize  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32trings  /usr/bin/i686-w64-mingw32trings  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32trip  /usr/bin/i686-w64-mingw32trip  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-windmc  /usr/bin/i686-w64-mingw32-windmc  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/i686-w64-mingw32-windres  /usr/bin/i686-w64-mingw32-windres  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-addr2line  /usr/bin/x86_64-w64-mingw32-addr2line  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-ar  /usr/bin/x86_64-w64-mingw32-ar  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-as  /usr/bin/x86_64-w64-mingw32-as  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-c++  /usr/bin/x86_64-w64-mingw32-c++  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-c++filt  /usr/bin/x86_64-w64-mingw32-c++filt  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-cpp  /usr/bin/x86_64-w64-mingw32-cpp  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-dlltool  /usr/bin/x86_64-w64-mingw32-dlltool  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-dllwrap  /usr/bin/x86_64-w64-mingw32-dllwrap  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-elfedit  /usr/bin/x86_64-w64-mingw32-elfedit  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-g++  /usr/bin/x86_64-w64-mingw32-g++  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcc  /usr/bin/x86_64-w64-mingw32-gcc  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcc-9.2.0  /usr/bin/x86_64-w64-mingw32-gcc-9.2.0  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcc-ar  /usr/bin/x86_64-w64-mingw32-gcc-ar  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcc-nm  /usr/bin/x86_64-w64-mingw32-gcc-nm  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcc-ranlib  /usr/bin/x86_64-w64-mingw32-gcc-ranlib  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcov  /usr/bin/x86_64-w64-mingw32-gcov  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcov-dump  /usr/bin/x86_64-w64-mingw32-gcov-dump  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gcov-tool  /usr/bin/x86_64-w64-mingw32-gcov-tool  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gfortran  /usr/bin/x86_64-w64-mingw32-gfortran  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-gprof  /usr/bin/x86_64-w64-mingw32-gprof  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-ld  /usr/bin/x86_64-w64-mingw32-ld  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-ld.bfd  /usr/bin/x86_64-w64-mingw32-ld.bfd  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-nm  /usr/bin/x86_64-w64-mingw32-nm  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-objcopy  /usr/bin/x86_64-w64-mingw32-objcopy  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-objdump  /usr/bin/x86_64-w64-mingw32-objdump  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-ranlib  /usr/bin/x86_64-w64-mingw32-ranlib  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-readelf  /usr/bin/x86_64-w64-mingw32-readelf  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32ize  /usr/bin/x86_64-w64-mingw32ize  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32trings  /usr/bin/x86_64-w64-mingw32trings  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32trip  /usr/bin/x86_64-w64-mingw32trip  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-windmc  /usr/bin/x86_64-w64-mingw32-windmc  
+sudo ln -s /usr/local/Cellar/mingw-w64/7.0.0_1/bin/x86_64-w64-mingw32-windres/usr/bin/  /usr/bin/x86_64-w64-mingw32-windres  
+```
+
 `./1.4.0/nim/lib/pure/osproc.nim`
 
 
